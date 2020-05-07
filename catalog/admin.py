@@ -7,7 +7,12 @@ class AuthorAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Book)
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    pass
+
+
+# admin.site.register(Book)
 # admin.site.register(Author)
 admin.site.register(BookInstance)
 admin.site.register(Genre)
