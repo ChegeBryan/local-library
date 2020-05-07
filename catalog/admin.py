@@ -11,6 +11,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 class BookInstanceInline(admin.TabularInline):
     model = BookInstance
+    extra = 0
 
 
 @admin.register(Book)
