@@ -32,6 +32,8 @@ class BookInstanceAdmin(admin.ModelAdmin):
         })
     )
 
+    list_display = ('id', 'book', 'status', 'due_back',)
+
 
 # admin.site.register(Book)
 # admin.site.register(Author)
