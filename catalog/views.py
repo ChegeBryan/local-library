@@ -20,12 +20,16 @@ def index(request):
     # Books (title contains 'Ger') ignore case
     num_ger_books = Book.objects.filter(title__icontains='ger').count()
 
+    # Count Genres (name contains 'fic')
+    num_fic_genres = Genre.objects.filter(name__icontains='fic').count()
+
     context = {
         'num_books': num_books,
         'num_instances': num_instances,
         'num_instances_available': num_instances_available,
         'num_authors': num_authors,
         'num_ger_books': num_ger_books,
+        'num_fic_genres': num_fic_genres,
     }
 
     # Render the HTML temlate ,index.html with the data in context
