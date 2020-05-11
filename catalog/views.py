@@ -39,8 +39,14 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
-    context_object_name = 'my_book_list'
     template_name = 'books/book_list_temp.html'
 
     def get_queryset(self):
         return Book.objects.filter(title_icontains='war')[:5]
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get the context
+        context = super().get_context_data(**kwargs)
+        # Create any data add add it to the context
+        context['book_count'] = Book.objects.count()
+        return context
