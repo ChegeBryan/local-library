@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import ListView
 
 from catalog.models import Book, Author, BookInstance, Genre
 
@@ -52,3 +53,8 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
     model = Book
+
+
+class AuthorListView(ListView):
+    model = Author
+    paginate = 10
