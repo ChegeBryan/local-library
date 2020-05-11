@@ -39,7 +39,7 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
-    template_name = 'books/book_list_temp.html'
+    template_name = 'catalog/book_list_temp.html'
 
     def get_queryset(self):
         return Book.objects.filter(title__icontains='war')[:5]
