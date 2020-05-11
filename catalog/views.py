@@ -50,3 +50,7 @@ class BookListView(generic.ListView):
         # Create any data add add it to the context
         context['book_count'] = Book.objects.count()
         return context
+
+
+class BookDetailView(generic.DetailView):
+    model = Book
