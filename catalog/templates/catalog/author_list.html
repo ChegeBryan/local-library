@@ -6,7 +6,7 @@
 <ul>
   {% for author in author_list %}
   <li>
-    <a href="">{{ author }} ({{ author.date_of_birth|default_if_none:"" }} - {{ author.date_of_death|default_if_none:"" }})
+    <a href="{% url 'author-detail' author.pk %}">{{ author }} ({{ author.date_of_birth|default_if_none:"" }} - {{ author.date_of_death|default_if_none:"" }})
   </li>
   {% empty %}
   <p>No authors yet to be registered.</p>
