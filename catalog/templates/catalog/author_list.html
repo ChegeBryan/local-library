@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h2>Author list</h2>
+
+<ul>
+  {% for author in author_list %}
+  <li>
+    <a href="{% url 'author-detail' author.pk %}">{{ author }} ({{ author.date_of_birth|default_if_none:"" }} - {{ author.date_of_death|default_if_none:"" }})
+  </li>
+  {% empty %}
+  <p>No authors yet to be registered.</p>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
