@@ -39,3 +39,4 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    context_object_name = 'my_book_list'
