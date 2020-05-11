@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 from catalog.models import Book, Author, BookInstance, Genre
 
@@ -34,3 +35,7 @@ def index(request):
 
     # Render the HTML temlate ,index.html with the data in context
     return render(request, 'index.html', context=context)
+
+
+class BookListView(generic.ListView):
+    model = Book
