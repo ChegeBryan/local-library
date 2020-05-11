@@ -40,5 +40,7 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
     context_object_name = 'my_book_list'
-    queryset = Book.objects.filter(title__icontains='war')[:5]
     template_name = 'books/book_list_temp.html'
+
+    def get_queryset(self):
+        return Book.objects.filter(title_icontains='war')[:5]
