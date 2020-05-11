@@ -40,3 +40,4 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
     context_object_name = 'my_book_list'
+    queryset = Book.objects.filter(title__icontains='war')[:5]
