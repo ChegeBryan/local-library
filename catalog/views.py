@@ -41,9 +41,6 @@ class BookListView(generic.ListView):
     model = Book
     template_name = 'catalog/book_list_temp.html'
 
-    def get_queryset(self):
-        return Book.objects.filter(title__icontains='war')[:5]
-
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get the context
         context = super().get_context_data(**kwargs)
