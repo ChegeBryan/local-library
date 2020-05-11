@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Book List</h1>
-<span class="text-muted">There are {{ book_count }} book(s) in the library.</span>
+<span class="text-muted">{{ book_count }} book{{ book_count|pluralize }} in the library.</span>
 
 <ul>
   {% for book in book_list %}
