@@ -39,6 +39,7 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    paginate_by = 10
     template_name = 'catalog/book_list_temp.html'
 
     def get_context_data(self, **kwargs):
