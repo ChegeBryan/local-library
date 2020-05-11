@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h2>Author list</h2>
+
+{% if author_list %}
+<ul>
+{% for author in author_list %}
+<li>
+<a href="">{{ author }} ({{ author.date_of_birth }} - {{ author.date_of_death }})
+</li>
+{% endfor %}
+</ul>
+{% else %}{% endif %}
+
+{% endblock content %}
