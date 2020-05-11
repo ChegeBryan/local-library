@@ -3,18 +3,16 @@
 {% block content %}
 
 <h1>Book List</h1>
-<h2 class="text-muted">There are {{ book_count }} book(s) in the library.</h2>
-{% if book_list %}
+<span class="text-muted">There are {{ book_count }} book(s) in the library.</span>
+
 <ul>
   {% for book in book_list %}
   <li>
     <a href="{{ book.get_absolute.url }}">{{ book.title }}</a>
   </li>
-
+  {% empty %}
+  <p>There are no books in the library.</p>
   {% endfor %}
 </ul>
-{% else %}
-<p>There are no books in the library.</p>
-{% endif %}
 
 {% endblock content %}
