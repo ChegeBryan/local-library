@@ -36,6 +36,7 @@ def index(request):
         'num_authors': num_authors,
         'num_ger_books': num_ger_books,
         'num_fic_genres': num_fic_genres,
+        'num_visits': num_visits,
     }
 
     # Render the HTML temlate ,index.html with the data in context
