@@ -84,6 +84,7 @@ class LoanedBooksByUserListView(LoginRequiredMixin, ListView):
 class BorrowedBooksListView(PermissionRequiredMixin, ListView):
     permission_required = 'catalog.can_mark_returned'
     model = BookInstance
+    template_name = 'catalog/bookinstance_list_borrowed.html'
     paginated_by = 10
 
     def get_queryset(self):
