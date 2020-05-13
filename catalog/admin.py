@@ -42,10 +42,8 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('id', 'book', 'status', 'due_back', 'borrower',)
 
 
-# admin.site.register(Book)
-# admin.site.register(Author)
-# admin.site.register(BookInstance)
 admin.site.register(Genre)
 admin.site.register(Language)
+
 # Register the admin class with the associated model
 admin.site.register(Author, AuthorAdmin)
