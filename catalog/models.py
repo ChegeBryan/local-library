@@ -1,9 +1,10 @@
+import uuid
+
+from datetime import date
+
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-
-
-import uuid
 
 
 class Genre(models.Model):
@@ -93,6 +94,12 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ['due_back']
+
+    @property
+    def is_overdue(self):
+        if self.due_back and date.today() > self.due_back:
+            return True
+        return False
 
     def __str__(self):
         """String for representing the Model object."""
