@@ -124,3 +124,9 @@ STATIC_URL = '/static/'
 
 # Update database/send cookies on every request
 SESSION_SAVE_EVERY_REQUEST = True
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
+# Log emails to consolefor testing purposes
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
