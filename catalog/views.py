@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic.edit import CreateView
 
 from catalog.models import Book, Author, BookInstance, Genre
 from catalog.forms import RenewBookForm
@@ -131,3 +132,8 @@ def renew_book_librarian(request, pk):
     }
 
     return render(request, 'catalog/book_renew_librarian.html', context)
+
+
+class AuthorCreate(CreateView):
+    model = Author
+    fields = '__all__'
