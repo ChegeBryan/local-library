@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from catalog.models import Book, Author, BookInstance, Genre
 from catalog.forms import RenewBookForm
@@ -142,3 +142,7 @@ class AuthorCreate(CreateView):
 class AuthorUpdate(UpdateView):
     model = Author
     fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
+
+
+class AuthorDelete(DeleteView):
+    model = Author
