@@ -1,9 +1,15 @@
+import datetime
+
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, \
     PermissionRequiredMixin
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 from catalog.models import Book, Author, BookInstance, Genre
+from catalog.forms import RenewBookForm
 
 
 def index(request):
@@ -90,3 +96,21 @@ class BorrowedBooksListView(PermissionRequiredMixin, ListView):
     def get_queryset(self):
         return BookInstance.objects.filter(
             status__exact='o').order_by('due_back')
+
+
+def renew_book_librarian(request, pk):
+    book_instance = get_object_or_404(BookInstance, pk=pk)
+
+    # if this is a POST request then process the Form data
+    if request.method == 'POST':
+        # Create a form instance and populate it with
+        # data from the request (binding)
+
+        form = RenewBookForm(request.POST)
+
+        # check if form is valid
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # (here we just write to the model due_back field)
+            book_instance.due_back = form.cleaned_data['renewal_date']
+            book_instance.save()
