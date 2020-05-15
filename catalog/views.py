@@ -114,3 +114,6 @@ def renew_book_librarian(request, pk):
             # (here we just write to the model due_back field)
             book_instance.due_back = form.cleaned_data['renewal_date']
             book_instance.save()
+
+            # redirect to a new URL
+            return HttpResponseRedirect(reverse('all-borrowed'))
