@@ -32,6 +32,10 @@
             {% if perms.catalog.can_mark_returned %}
             <li>Librarian</li>
             <li><a href="{% url 'borrowed-books' %}">All Borrowed</a></li>
+            <hr>
+            <li><a href="{% url 'book-create' %}">Add Book</a></li>
+            <hr>
+            <li><a href="{% url 'author-create' %}">Add Author</a></li>
             {% endif %}
           </ul>
           {% endblock %}
