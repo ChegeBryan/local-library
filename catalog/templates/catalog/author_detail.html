@@ -7,6 +7,7 @@
 
 {% if perms.catalog.can_mark_returned %}
 <a href="{% url 'author-update' author.pk %}">Edit Author</a>
+<a href="{% url 'author-delete' author.pk %}">Remove Author</a>
 {% endif %}
 
 <div style="margin-left:20px;margin-top:20px">

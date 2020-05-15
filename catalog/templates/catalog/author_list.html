@@ -9,6 +9,7 @@
     <a href="{% url 'author-detail' author.pk %}">{{ author }} ({{ author.date_of_birth|default_if_none:"" }} - {{ author.date_of_death|default_if_none:"" }})</a>
     {% if perms.catalog.can_mark_returned %}
      - <a href="{% url 'author-update' author.pk %}">Edit</a>
+     - <a href="{% url 'author-delete' author.pk %}">Remove</a>
     {% endif %}
   </li>
   {% empty %}
