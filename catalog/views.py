@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, \
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from catalog.models import Book, Author, BookInstance, Genre
@@ -146,3 +146,4 @@ class AuthorUpdate(UpdateView):
 
 class AuthorDelete(DeleteView):
     model = Author
+    success_url = reverse_lazy('authors')
