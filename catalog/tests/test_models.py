@@ -23,3 +23,8 @@ class AuthorModelTest(TestCase):
         author = Author.objects.get(id=1)
         max_length = author._meta.get_field('first_name').max_length
         self.assertEquals(max_length, 100)
+
+    def test_object_name_is_last_name_comma_first_name(self):
+        author = Author.objects.get(id=1)
+        expected_object_name = f'{author.last_name}, {author.first_name}'
+        self.assertAlmostEquals(expected_object_name, str(author))
