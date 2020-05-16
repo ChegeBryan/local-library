@@ -81,7 +81,7 @@ class AuthorDetailView(DetailView):
 class LoanedBooksByUserListView(LoginRequiredMixin, ListView):
     model = BookInstance
     template_name = 'catalog/bookinstance_list_borrowed_user.html'
-    paginated_by = 10
+    paginate_by = 10
 
     def get_queryset(self):
         return BookInstance.objects.filter(
@@ -93,7 +93,7 @@ class BorrowedBooksListView(PermissionRequiredMixin, ListView):
     permission_required = 'catalog.can_mark_returned'
     model = BookInstance
     template_name = 'catalog/bookinstance_list_borrowed.html'
-    paginated_by = 10
+    paginate_by = 10
 
     def get_queryset(self):
         return BookInstance.objects.filter(
